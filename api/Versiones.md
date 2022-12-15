@@ -15,5 +15,6 @@
 -version 0.0.4
                 *axios* se agrega a rutas ya creadas. propiedades en las peticiones para evitar la utilizacion de algoritmos de comprension. 
                 *routes/prueba* se crea una ruta de [prueba] para ir gestionando y solucionando errores.
-                *routes/videogame* Se avanza con dicho codigo (falta el post y la comprobación de si es de db)
+                *routes/videogame* se completa el codigo.
+                
                 
