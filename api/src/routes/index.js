@@ -4,8 +4,9 @@ const router = Router();
 // Ejemplo: const authRouter = require('./auth.js');
 
 // const videogames = require('./videogames');
-// const videogame = require('./videogame');
-// const genres = require('./genres');
+ const videogame = require('./videogame');
+ const genres = require('./genres');
+ const prueba = require('./prueba');
 
 
 
@@ -13,7 +14,8 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 // router.use('/videogames', videogames);
-// router.use('/genres', genres);
-// router.use('/videogame', videogame);
+  router.use('/genres', genres);
+  router.use('/videogame', videogame);
+  router.use('/prueba', prueba);
 
 module.exports = router;
