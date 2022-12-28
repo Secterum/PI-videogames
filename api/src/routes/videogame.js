@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { APY_KEY } = process.env;
+const { API_KEY } = process.env;
 const { Router } = require("express");
 const router = Router();
 const axios = require("axios").default;
@@ -8,10 +8,9 @@ const { Genre, Videogame } = require("../db");
 router.get("/:id", async (req, res) => {
   const { id } = req.params
   const idString = String(id); // guardado para luego consultar si es de la db o de la api
-  console.log(id.includes("-"), " ", id + "<-----comprobacion de IDs");
+  console.log('se encuentra en la DbLocal', id.includes("-"));
 
   if (id.includes("-")) {
-    console.log("entre en el if----")
     let videogameDb = await Videogame.findOne({
       where: {
         id: idString,
@@ -24,9 +23,7 @@ router.get("/:id", async (req, res) => {
         }    
     },
     });
-    //Parseo el objeto
-    console.log(videogameDb, "consoleo de objeto de DB");
-
+    
     videogameDb = JSON.stringify(videogameDb);
     videogameDb = JSON.parse(videogameDb);
 
@@ -35,9 +32,8 @@ router.get("/:id", async (req, res) => {
   } else {
 
     try {
-      console.log("entre en el try -------------------------------");
       const response = await axios.get(
-        `https://api.rawg.io/api/games/${id}?key=${APY_KEY}`,
+        `https://api.rawg.io/api/games/${id}?key=${API_KEY}`,
         {
           headers: {
             "Accept-Encoding": "identity", // evita que se utilicen algoritmos de compresión/descomprensión (necesita dependencias de terceros)
@@ -66,47 +62,9 @@ router.get("/:id", async (req, res) => {
         platforms: platforms.map((el) => el.platform.name),
       });
     } catch (err) {
-      console.log("entre en carch ------------");
-      return console.log(err);
+      console.log(error)
+      res.status(400).send(error);
     }
-  }
-});
-
-router.post("/", async (req, res) => {
-  let {
-    name,
-    description,
-    background_image,
-    released,
-    rating,
-    genres,
-    createdInDb,
-    platforms,
-  } = req.body;
-
-  console.log(platforms, "<-----");
-
-  try {
-    console.log("entra el try ----------------");
-    const gameCreated = await Videogame.create({
-      name,
-      description,
-      background_image,
-      released,
-      rating,
-      platforms,
-      createdInDb,
-    });
-    const gameGenre = await Genre.findAll({
-      where: {
-        name: genres,
-      },
-    });
-    console.log(gameGenre)
-    await gameCreated.addGenre(gameGenre);
-    res.send(gameCreated);
-  } catch (err) {
-    console.log(err, "algo");
   }
 });
 

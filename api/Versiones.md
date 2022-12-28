@@ -16,5 +16,5 @@
                 *axios* se agrega a rutas ya creadas. propiedades en las peticiones para evitar la utilizacion de algoritmos de comprension. 
                 *routes/prueba* se crea una ruta de [prueba] para ir gestionando y solucionando errores.
                 *routes/videogame* se completa el codigo.
-                
+-version 0.0.5 *se termina el back y se hace comprobaciones de funcionamientos, se pasa a pulido*            
                 
