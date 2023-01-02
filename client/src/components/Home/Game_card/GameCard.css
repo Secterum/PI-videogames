@@ -1,0 +1,57 @@
+.box{
+    position: relative;
+    background-color: #a29ba1;
+    width: 500px;
+    border-radius: 5px;
+    height: 250px;
+    /* aspect-ratio: 1.8; */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    overflow:hidden;
+} 
+
+.box .gamePicture {
+    position: absolute;
+    object-position: top;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.box .textContainer {
+    position: absolute;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #000000 17%, #ffffff00 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.textContainer .title{
+    font-size: 32px;
+    font-weight: bolder;
+    color:#ffffff;
+    margin:0;
+}
+
+.textContainer .genres {
+    display: block;
+    font-size: 18px;
+    font-weight: bolder;
+    color:#f3a708;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin:10px 0;
+}
+.genres p {
+    margin: 0;
+}

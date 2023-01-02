@@ -1,0 +1,11 @@
+.homeContainer {
+    background-color:#393b3c;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding:0;
+    position: relative;
+    padding-top: 155px;
+}

@@ -11,7 +11,8 @@ router.get("/:id", async (req, res) => {
   console.log('se encuentra en la DbLocal', id.includes("-"));
 
   if (id.includes("-")) {
-    let videogameDb = await Videogame.findOne({
+
+    let db = await Videogame.findAll({
       where: {
         id: idString,
       },
@@ -22,12 +23,11 @@ router.get("/:id", async (req, res) => {
             attributes: []
         }    
     },
-    });
-    
-    videogameDb = JSON.stringify(videogameDb);
-    videogameDb = JSON.parse(videogameDb);
+    }).then(r=>r.map(r=>r.toJSON()));
 
-    res.json(videogameDb);
+    db.forEach(v => {v.genres = v.genres.map(g => g.name)})
+    
+    res.send(db);
 
   } else {
 

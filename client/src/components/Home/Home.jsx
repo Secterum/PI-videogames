@@ -1,31 +1,27 @@
 import React, { useEffect } from "react";
+import "./Home.css";
 import { NavLink } from "react-router-dom";
-import {useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as action from "../../redux/actions";
+import GameCard from "./Game_card/GameCard";
+import Footer from "../Footer/Footer";
+import NavBar from "../Nav_bar/NavBar";
 
 const Home = () => {
-  console.log("entre al componente");
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-  console.log("guarde el dispatch")
-  const allGames = useSelector((state) => state.videogames);
-  console.log("guarde el all games");
+  const games = useSelector((state) => state.videogames);
+
   useEffect(() => {
     dispatch(action.getVideogames());
   }, []);
-  console.log(allGames);
-
-  return (
-    <>
-      <h1>home</h1>
-      <NavLink className="nombreDeClase" to="/esquis">
-        <span>ruta esquis</span>
-      </NavLink>
-      <NavLink className="nombreDeClase" to="/videogames">
-        <span>ruta videogames create</span>
-      </NavLink>
-    </>
-  );
+ return (
+  <div className="homeContainer" > 
+  <NavBar/>
+  <GameCard/>
+  <Footer/>
+  </div>
+ )
 };
 
 export default Home;

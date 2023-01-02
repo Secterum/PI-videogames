@@ -1,1 +1,8 @@
 https://images2.alphacoders.com/105/1052293.jpg ----------- Fondo
+
+
+#130f0f negro
+#bb110b rojo 
+#a29ba1 gris
+#393b3c gris oscuro
+#f3a708 amarillo

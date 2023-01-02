@@ -1,0 +1,9 @@
+.NavBarContainer {
+    position: fixed;
+  top:0;
+  height: 150px;
+  width: 100%;
+  justify-content: space-between;
+  z-index: 9999;
+  background-color: #4f08f3;
+}

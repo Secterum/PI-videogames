@@ -12,6 +12,13 @@ const PostCreateGame = async (dataForm) => {
     createdInDb,
     platforms,
   } = dataForm;
+  
+  const gameGenre = await Genre.findAll({
+    where: {
+      name: genres,
+    },
+  });
+
 
     const gameCreated = await Videogame.create({
       name,
@@ -21,19 +28,17 @@ const PostCreateGame = async (dataForm) => {
       rating,
       platforms,
       createdInDb,
+      genres:genres,
     });
-    const gameGenre = await Genre.findAll({
-      where: {
-        name: genres,
-      },
-    });
-    // console.log (gameCreated)
+    
     gameCreated.addGenre(gameGenre);
+
+    // gameCreated.genres = gameGenre.map(g => g.dataValues.name)
 
     return {
         status: 'done',
         message: "New game added successfully!",
-        game: gameCreated
+        game: gameCreated,
       }
     }
 

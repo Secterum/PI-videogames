@@ -23,8 +23,7 @@ const getNameGames = async (search) => {
     }
 });
 const DbGames = await getGamesDb()
-console.log (DbGames.length + 'consoleo1')
-console.log (apiGames.length + 'consoleo1')
+
 
   if (!apiGames.length && !DbGames.length) {
     throw {
