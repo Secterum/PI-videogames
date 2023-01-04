@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as action from "../../../redux/actions";
 // import styles from "./GameCard.module.css";
@@ -9,10 +9,17 @@ const CardGame = () => {
   const dispatch = useDispatch();
 
   const games = useSelector((state) => state.videogames);
+  const currentPage = useSelector((state) => state.currentPage);
+  const gamesPerPage = useSelector((state) => state.gamesPerPage);
 
-  useEffect(() => {
-    dispatch(action.getVideogames());
-  }, []);
+  const sortAscending = useSelector((state) => state.sortAscending);
+  const sortDescending = useSelector((state) => state.sortDescending);
+
+  console.log(sortAscending,sortDescending, 'banderas')
+
+
+  useEffect(() => { dispatch(action.getVideogames())
+    dispatch(action.changePage(1));}, []);
 
   const lengthValidator = (array, index, c) => {
       if (array.length == index+1) {
@@ -23,11 +30,27 @@ const CardGame = () => {
       }
   }
 
+
+  
+
+  const totalPage = Math.ceil(games.length / gamesPerPage);
+  dispatch(action.totalPage(totalPage))
+  // Calcula el índice del primer juego a mostrar en la página actual
+  const firstGameIndex = (currentPage - 1) * gamesPerPage;
+  // Calcula el índice del último juego a mostrar en la página actual
+  const lastGameIndex = firstGameIndex + gamesPerPage;
+  // Obtiene una sublista de los juegos a mostrar en la página actual
+  const currentGames = games.slice(firstGameIndex, lastGameIndex);
+
+  
+
   return (
     <>
-      {games &&
-        games.map((c, index) => (
-          <div className="box" key={index}>
+      {currentGames &&
+        currentGames.map((c,) => (
+          <div className="box" key={c.id}>
+            <Link className="boxLink" to={`/videogame/${c.id}`}> 
+            {/* onClick={() => handleClick(c.id)} */}
             <img
               className="gamePicture"
               src={
@@ -38,17 +61,20 @@ const CardGame = () => {
               alt="game Picture"
             />
             <div className="textContainer">
+              
+              <div className="ratingBox"><h1>{c.rating}</h1></div>
               <h2 className="title">{c.name ? c.name : ""}</h2>
-
               <div className="genres">
                 {c.genres &&
                   c.genres.map((genre, index) =>
                     lengthValidator(c.genres, index, genre)
-                  )}
+                  )}  
               </div>
             </div>
+            </Link>
           </div>
         ))}
+        
     </>
   );
 };

@@ -6,11 +6,12 @@ import * as action from "../../redux/actions";
 import GameCard from "./Game_card/GameCard";
 import Footer from "../Footer/Footer";
 import NavBar from "../Nav_bar/NavBar";
+import Pagination from "./Paginado/Pagination";
+import FilterBar from "./FilterBar/FilterBar";
 
 const Home = () => {
   const dispatch = useDispatch();
 
-  const games = useSelector((state) => state.videogames);
 
   useEffect(() => {
     dispatch(action.getVideogames());
@@ -18,6 +19,8 @@ const Home = () => {
  return (
   <div className="homeContainer" > 
   <NavBar/>
+  <FilterBar/>
+  <Pagination/>
   <GameCard/>
   <Footer/>
   </div>

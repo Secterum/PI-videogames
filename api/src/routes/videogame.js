@@ -27,7 +27,7 @@ router.get("/:id", async (req, res) => {
 
     db.forEach(v => {v.genres = v.genres.map(g => g.name)})
     
-    res.send(db);
+    res.send(db[0]);
 
   } else {
 

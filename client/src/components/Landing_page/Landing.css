@@ -1,0 +1,21 @@
+.boxLanding{
+    width: 100vw;
+    height: 100vh ;
+    position: relative;
+    background-image: url('https://images2.alphacoders.com/105/1052293.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    overflow:hidden;
+} 
+
+
+.boxLanding .gamePicture {
+    position: absolute;
+    object-position: top;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;}
