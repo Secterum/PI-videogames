@@ -1,0 +1,83 @@
+.BoxDetails {
+    overflow: auto;
+  background-color: #393b3c;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  position: flex;
+  padding-top: none;
+}
+.detailsDetails {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100px;
+}
+.detailsGridContainer {
+  gap: 20px;
+  margin-top: 100px;
+  padding: 20px 0 80px 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+.detailsIMG {
+  object-fit: cover;
+  float: right;
+  border-radius: 15px;
+  width: 45%;
+  height: 60%;
+}
+.BoxDetails .detailsTitle {
+  position: fixed;
+  top: 0;
+  color: #f3a708;
+  font-size: 4vmax;
+  margin-top: 13px;
+  z-index: 100;
+}
+.detailsContainer {
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  width: 45%;
+  height: 60%;
+  flex-direction: column;
+}
+.detailsContainer .detailsDetails {
+    display: flex;
+
+  justify-content:space-evenly;
+  width: 100%;
+  height: 20%;
+}
+.detailsDetailsGyP {
+    background-color: #464849;
+  display: flex;
+  justify-content: space-evenly;
+
+  overflow: auto;
+  width: 100%;
+  height: 80%;
+}
+.detailsPlatform {
+  margin: 0;
+}
+
+.detailsContainer h3 {
+    margin: 15px 0;
+    width: 200px;
+}
+.detailsDescription{
+    line-height: 30px;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 0 20px;
+}

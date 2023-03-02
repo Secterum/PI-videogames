@@ -1,3 +1,45 @@
-.scrollFilter {
-    background: linear-gradient(120deg, rgba(243,167,8,0.7651435574229692) 35%, rgba(38,5,5,1) 100%);
+.BoxFilterBar {
+   justify-content: space-between;
+  
+}
+ .BoxFilterBar .buttonFilter {
+  outline: none;
+  height: 40px;
+  width: 40px;
+  font-size: 31px;
+  padding-right: 37px;
+  background-color: transparent;
+  color: #838688;
+ }
+
+ .scrollFilter{
+    left: 0;
+    right: 0;
+ }
+
+ .scrollFilterOrden{
+   background-color: #bb110b;
+   color: #f3a708;
+   margin-left: 50px;
+   margin-right: 20px;
+   border: 2px solid #555555;
+   outline: none;
+   width: 90px;
+ }
+ .scrollFilter2{
+    background-color: #bb110b;
+    color: #f3a708;
+    margin-right: 20px;
+    border: 2px solid #555555;
+    outline: none;
+    width: 90px;
+
+
+}
+.scrollFilterGenres{
+    background-color: #bb110b;
+    color: #f3a708;
+  border: 2px solid #555555;
+  outline: none;
+  width: 90px;
 }

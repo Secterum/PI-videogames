@@ -8,18 +8,24 @@ import Footer from "../Footer/Footer";
 import NavBar from "../Nav_bar/NavBar";
 import Pagination from "./Paginado/Pagination";
 import FilterBar from "./FilterBar/FilterBar";
+import SearchName from "./SearchName/SearchName";
 
 const Home = () => {
   const dispatch = useDispatch();
-
+  const games = useSelector((state) => state.videogames);
 
   useEffect(() => {
-    dispatch(action.getVideogames());
+
+   games.length === 0 && dispatch(action.getVideogames());
   }, []);
+
  return (
   <div className="homeContainer" > 
   <NavBar/>
+  <div className="searchBox">
+  <SearchName/>
   <FilterBar/>
+  </div>
   <Pagination/>
   <GameCard/>
   <Footer/>

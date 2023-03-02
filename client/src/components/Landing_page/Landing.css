@@ -10,12 +10,26 @@
     align-items: center;
     overflow:hidden;
 } 
+.LandingNavLink{
+    background-color: rgba(56, 14, 206, 0);
+    justify-content:center;
+    margin-top: 115px;
+    display: flex;
+    width: 640px;
+    height: 640px;
+    border-radius: 40px;
+    transition: 1s all ease;
 
+    
+}
 
-.boxLanding .gamePicture {
-    position: absolute;
-    object-position: top;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;}
+.LandingNavLink:hover{
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content:center;
+    display: flex;
+    width: 740px;
+    height: 740px;
+    transition: 1s all ease;
+}

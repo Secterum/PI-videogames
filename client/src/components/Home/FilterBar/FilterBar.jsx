@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../../redux/actions";
-
+import "./FilterBar.css"
+import { MdReorder } from "react-icons/md";
 const FiltersBar = () => {
 
 const dispatch = useDispatch()
@@ -26,7 +27,6 @@ const dispatch = useDispatch()
   
   const genres = useSelector((state) => state.genres);
 
-console.log (genres,'aca')
 
   function handleFilterCreated(e) {
     e.preventDefault();
@@ -51,23 +51,23 @@ console.log (genres,'aca')
 
 
   return (
-    <div>
-      <button className='buttonFilter' onClick={handleClick}>Abrir scroll</button>
+    <div className='BoxFilterBar'>
+      <button className='buttonFilter' onClick={handleClick}><MdReorder/></button>
       {stateScroll.open && (
         <div className="scrollFilter">
-          <select id="order" onChange={(e) => handleSort(e)}>
+          <select id="order" className="scrollFilterOrden" onChange={(e) => handleSort(e)}>
         <option value="normal">Normal</option>
         <option value="upward">A - Z</option>
         <option value="descendant">Z - A</option>
-        <option value="HighRating">raiting Attack</option>
-        <option value="LowRating">Lowest Attack</option>
+        <option value="HighRating">HighRating</option>
+        <option value="LowRating">LowRating</option>
       </select>
-      <select id="url" onChange={(e) => handleFilterCreated(e)}>
+      <select id="url" className='scrollFilter2' onChange={(e) => handleFilterCreated(e)}>
         <option value="All">All</option>
         <option value="Api">API</option>
         <option value="Created">Created</option>
       </select>
-      <select id="type" onChange={(e) => handleFilterByGenres(e)}>
+      <select id="type" className='scrollFilterGenres' onChange={(e) => handleFilterByGenres(e)}>
         <option value="All">all types</option>
         {genres.map((genre) => (
           <option value={genre.name} key={genre.name}>

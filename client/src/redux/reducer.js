@@ -7,20 +7,23 @@ import {
   ORDERING,
   FILTER_BY_GENRES,
   FILTER_CREATED,
+  POST_VIDEOGAMES,
+  SEARCH_NAME,
+  SEARCH_NAMERESET,
 } from "./actions";
 
 const initialState = {
   //generales
-  videogames: [],
+  videogames: [], // es la que muto y la que renderiza
   genres: [],
   //paginado
   totalPage: 0,
   currentPage: 1,
-  gamesPerPage: 20,
+  gamesPerPage: 10,
   //details
   details: [],
   //render
-  gamesRender: [],
+  gamesRender: [], //nunca inmuto siempre contiene todos lo juegos
   //ordenamiento
   sortAscending: false,
   sortDescending: false,
@@ -32,7 +35,17 @@ export function reducer(state = initialState, action) {
       return {
         ...state,
         videogames: action.payload,
-        totalPage: Math.ceil(action.payload.length),
+        gamesRender: action.payload,
+        totalPage: Math.ceil(action.payload.length / state.gamesPerPage),
+      };
+    case POST_VIDEOGAMES:
+      return {
+        ...state,
+        videogames: [...state.videogames, action.payload.game],
+        gamesRender: [...state.gamesRender, action.payload.game],
+        totalPage: Math.ceil(
+          (state.videogames.length + 1) / state.gamesPerPage
+        ),
       };
 
     case CHANGE_PAGE:
@@ -108,16 +121,36 @@ export function reducer(state = initialState, action) {
         });
       }
       if (action.payload === "normal") {
-        sortedArray = state.gamesRender
-          
-          }
+        sortedArray = state.gamesRender;
+      }
       return {
         ...state,
         videogames: [...sortedArray],
       };
 
+    case SEARCH_NAME:
+      return {
+        ...state,
+        videogames: action.payload,
+        totalPage: Math.ceil(action.payload.length / state.gamesPerPage),
+        currentPage: 1,
+      };
+    case SEARCH_NAMERESET:
+      return {
+        ...state,
+        totalPage: Math.ceil(state.gamesRender.length / state.gamesPerPage),
+        currentPage: 1,
+        videogames: state.gamesRender,
+      };
+
+    case "CLEAR_DETAILS":
+      return {
+        ...state,
+        details: [],
+      };
+
     case FILTER_BY_GENRES:
-      const AllVideogames = state.videogames;
+      const AllVideogames = state.gamesRender;
       const statusFiltered =
         action.payload === "All"
           ? AllVideogames
@@ -127,14 +160,15 @@ export function reducer(state = initialState, action) {
         ...state,
         videogames: statusFiltered.length
           ? statusFiltered
-          : [`${action.payload} Pokemons`],
-          totalPage: Math.ceil(statusFiltered.length / state.gamesPerPage),
+          : [`${action.payload} AAA`],
+        totalPage: Math.ceil(statusFiltered.length / state.gamesPerPage),
         currentPage: 1,
       };
 
     case FILTER_CREATED:
-      let AllVideogames2 = state.videogames;
+      let AllVideogames2 = state.gamesRender;
       let result;
+
       if (action.payload === "Created") {
         result = AllVideogames2.filter((el) => el.id.length > 1);
       }
@@ -147,7 +181,7 @@ export function reducer(state = initialState, action) {
 
       return {
         ...state,
-        pokemons: result,
+        videogames: result,
         totalPage: Math.ceil(result.length / state.gamesPerPage),
         currentPage: 1,
       };

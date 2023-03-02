@@ -1,0 +1,53 @@
+.SearchContainer {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+.NavBarSearch {
+  height: 37px;
+  background-color: #bb110b;
+  color: #838688;
+  border: 1px solid #3a38388a;
+  border-radius: 10px;
+  font-weight: bold;
+  outline: none;
+  margin: 0;
+  padding: 0 10px;
+  }
+  .NavBarSearch::placeholder{
+    color:#838688;
+  }
+  .searchContainerForm{
+    margin: 0;
+    padding: 0;
+  }
+  .NavBarSearchSubmit{
+    height: 50%;
+    color: #838688;
+    background-color: #ffffff00;
+    border: none;
+    position: relative;
+    right: 40px;
+    top: 9px;
+    font-size: 27px;
+  } 
+  .NavBarSearchSubmit:hover{
+    color: #f3a708;
+  }
+
+  .NavBarSearchReset{
+    height: 50%;
+    color: #838688;
+    background-color: #bb110b00;
+    border: none;
+    position: relative;
+    right: 40px;
+    top: 9px;
+    font-size: 27px;
+  } 
+  .NavBarSearchReset:hover{
+    color: #f3a708;
+  }

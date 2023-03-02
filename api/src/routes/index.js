@@ -6,7 +6,7 @@ const router = Router();
 const videogame = require('./videogame');
 const routerVideogames = require("./routerVideogames");
 const routerGenres = require("./routerGenres");
-
+const platformMiddleware = require('../routes/routes-platforms.js')
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -14,4 +14,5 @@ const routerGenres = require("./routerGenres");
 router.use('/videogames', routerVideogames);
 router.use("/genres", routerGenres);
 router.use("/videogame", videogame);
+router.use('/platforms',platformMiddleware )
 module.exports = router;

@@ -9,6 +9,10 @@ export const GET_GENRES = "GET_GENRES";
 export const ORDERING = "ORDERING";
 export const FILTER_BY_GENRES = "FILTER_BY_GENRES"
 export const FILTER_CREATED = "FILTER_CREATED"
+export const POST_VIDEOGAMES = "POST_VIDEOGAMES"
+export const SEARCH_NAME = "SEARCH_NAME"
+export const SEARCH_NAMERESET = "SEARCH_NAMERESET"
+export const CLEAR_DETAILS = "CLEAR_DETAILS"
 
 export const createGames = () => {};
 
@@ -22,6 +26,39 @@ export const getVideogames = () => {
     });
   };
 };
+
+export const searchName = (name) => {
+  return async function (dispacth) {
+  const result = await axios.get(`http://localhost:3001/videogames?name=${name}`)
+  return dispacth({
+    type: SEARCH_NAME,
+    payload: result.data
+  })
+  }
+}
+
+  
+ export const searchNameReset = () => {
+  return {
+    type: SEARCH_NAMERESET,
+  };
+};
+
+
+
+export const postVideogame = (data) => {
+  return async function (dispacth) {
+    const result = await axios.post("http://localhost:3001/videogames", data);
+
+    return dispacth({
+      type: POST_VIDEOGAMES,
+      payload: result.data,
+    });
+  };
+};
+
+
+
 
 export const getGenres = () => {
   return async function (dispacth) {
@@ -77,9 +114,14 @@ export const filterCreated = (payload) => {
   return {
     type: FILTER_CREATED,
     payload,
-  }
+  }}
+
+export const clearDetails = () => {
+  return {
+    type: CLEAR_DETAILS,
+  }}
 
 
-}
+
 
 

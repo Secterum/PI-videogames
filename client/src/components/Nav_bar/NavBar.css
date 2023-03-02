@@ -1,9 +1,40 @@
 .NavBarContainer {
-    position: fixed;
-  top:0;
-  height: 150px;
+  position: fixed;
+  top: 0;
+  height: 100px;
   width: 100%;
+  display: flex;
   justify-content: space-between;
+  flex-direction: row;
   z-index: 100;
-  background-color:#a35803;
+  background-color: #252525d6;
+}
+
+.NavBarBoxTitleImg {
+  width: 300px;
+  height: 80px;
+  margin-top: 10px;
+}
+
+.NavBarTitleImg {
+  width: 110%;
+  height: 110%;
+}
+.boxButton {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.nombreDeClase {
+  padding: 0 10px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  line-height: 0;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

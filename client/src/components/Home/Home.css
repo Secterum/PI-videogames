@@ -7,5 +7,12 @@
     gap: 10px;
     padding:0;
     position: relative;
-    padding-top: 150px;
+    padding-top: 100px;
+}
+.searchBox{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+ display: flex;   
 }

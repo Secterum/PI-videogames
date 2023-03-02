@@ -1,5 +1,81 @@
 .boxCreationForm {
-    background-color: black;
-    position: relative;
-    padding-top: 150px;
+   background-color: #393b3c;
+   padding-top: 38px;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   gap: 9px;
+   flex-direction: column;
+   align-items: center;
+}
+.CreationFormInputsContainer {
+  background-color: #393b3c;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.CreationFormInputBox {
+  width: 300px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.CreationFormInput {
+  width: 170px;
+}
+
+.CreationFormLabel {
+  color: #a29ba1;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+}
+.CreationFormErrors {
+  padding: 0;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: #f3a908ad;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+}
+.CheckBoxContainer {
+  padding: 0;
+  height: 280px;
+  display: flex;
+  width: 90%;
+  justify-content: space-around;
+  align-items: center;
+}
+.CreationFormGyP {
+   background-color: #f3a708;
+  margin-top: 0;
+  padding: 0;
+  overflow: auto;
+  width: 48%;
+  height: 100%;
+}
+.CreationFormGyPbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.CreationFormGyPCheckbox {
+  display: flex;
+  width: 200px;
+}
+.CreationFormGenresH4 {
+  margin-left: 22px;
+}
+.CreationFormPlatformsH4 {
+  margin-left: 22px;
 }

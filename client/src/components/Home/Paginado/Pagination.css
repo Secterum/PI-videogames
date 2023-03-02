@@ -1,5 +1,6 @@
 .paginationContainer {
-  background-color: #1ee03e;
+  /* background-color: #bb110b33; */
   position: relative;
   width: 100%;
 }
+.active {background-color: red;}

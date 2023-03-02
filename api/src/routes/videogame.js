@@ -56,7 +56,9 @@ router.get("/:id", async (req, res) => {
         name,
         background_image,
         genres: genres.map((el) => el.name),
-        description,
+        description:description.replace(/<[^>]*>?/g, "")
+        .replace(/(\r\n|\n|\r)/gm, "")
+        .replaceAll("&#39;s", "'s"),
         released,
         rating,
         platforms: platforms.map((el) => el.platform.name),
